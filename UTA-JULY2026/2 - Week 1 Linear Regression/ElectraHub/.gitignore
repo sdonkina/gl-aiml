@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Local environments
+.venv/
+venv/
+
+# Data artifacts
+data/processed/*
+!data/processed/.gitkeep
+
+# Notebook outputs and exports
+reports/*
+!reports/.gitkeep

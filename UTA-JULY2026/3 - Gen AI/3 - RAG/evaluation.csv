@@ -1,0 +1,81 @@
+"question","expected_answer","relevant_context"
+"What is the specialist visit copay for the Gold 80 plan?","The specialist visit copay for the Gold 80 plan is $50. Per the plan's copayment rules, copayments for office visits (such as specialist visits) apply before the annual deductible is met, while other copayments apply after the deductible is met unless otherwise stated.","| Benefit | Bronze 60 | Silver 70 | Gold 80 | Platinum 90 |
+|---|---|---|---|---|
+| Annual Deductible (Individual) | $7,500 | $4,500 | $1,750 | $500 |
+| Annual Deductible (Family) | $15,000 | $9,000 | $3,500 | $1,000 |
+| Out-of-Pocket Max (Individual) | $9,450 | $8,200 | $6,800 | $3,500 |
+| Out-of-Pocket Max (Family) | $18,900 | $16,400 | $13,600 | $7,000 |
+| Primary Care Visit Copay | $45 | $35 | $25 | $15 |
+| Specialist Visit Copay | $80 | $65 | $50 | $30 |
+| Urgent Care Copay | $75 | $60 | $45 | $25 |
+| Emergency Room Copay | $450 | $350 | $250 | $150 |
+| Coinsurance (after deductible) | 40% | 30% | 20% | 10% |
+| Inpatient Hospital (per day) | $750/day | $500/day | $350/day | $200/day | <> Copayment (Copay). A fixed dollar amount the member pays at the time of receiving a covered service. Copayments apply before the deductible is met for office visits and prescription drugs; all other copayments apply after the deductible is met unless otherwise stated."
+"What does 'Medically Necessary' mean according to MeridianHealth's policy terms?","Medically Necessary is defined as a service that is (a) required to diagnose or treat an illness, injury, or condition, (b) consistent with generally accepted medical practice, (c) not primarily for convenience, and (d) the most cost-effective level that can safely be provided. MeridianHealth's Medical Director makes the final determination on medical necessity.","Medically Necessary. A service that is (a) required to diagnose or treat an illness, injury, or condition, (b) consistent with generally accepted medical practice, (c) not primarily for convenience, and (d) the most cost-effective level that can safely be provided. MeridianHealth's Medical Director makes the final determination."
+"Is a pre-existing condition like asthma covered from day one on an employer-sponsored plan, or is there a waiting period?","Once coverage is effective, asthma and all other pre-existing conditions are covered immediately with no condition-specific waiting period, since ACA-compliant plans do not impose waiting periods for pre-existing conditions and require no health questionnaire or medical underwriting. However, employer-sponsored group plans may impose a separate enrollment waiting period of up to 90 calendar days from the employee's date of hire (the employer selects 0, 30, 60, or 90 days) before coverage begins at all. This is an enrollment waiting period, not a condition-specific exclusion — once coverage starts, pre-existing condition benefits like asthma treatment are available with no further waiting.","4.1 ACA-Compliant Plans — No Condition-Specific Waiting Periods
+Under the Affordable Care Act, MeridianHealth ACA-compliant plans do not impose any waiting period related to specific health conditions or pre-existing conditions. Once coverage is effective, all covered benefits are available immediately including benefits for pre-existing conditions such as diabetes, hypertension, cancer, heart disease, asthma, depression, and any other previously diagnosed condition. No health questionnaire, medical underwriting, or evidence of insurability is required for ACA plan enrollment. <> 4.2 Employer-Sponsored Plans — Enrollment Waiting Period
+Employer-sponsored group plans may include an enrollment waiting period of up to 90 calendar days from the employee's date of hire, as permitted under ACA Section 2708. This is an enrollment waiting period, not a condition-specific exclusion. Once coverage becomes effective, all benefits including those for pre-existing conditions are available with no further waiting. The employer selects the length (0, 30, 60, or 90 days) at group plan setup."
+"What steps does a member need to follow to file a reimbursement claim for out-of-network services?","To file an out-of-network reimbursement claim, the member should: (1) Collect all documentation — itemized bills, receipts, and medical records including provider name, address, and TIN; member name and DOB; date(s) of service; ICD-10 diagnosis codes; CPT/HCPCS procedure codes; and itemized charges. (2) Complete Form MH-RC-200, filling in all sections (member info, provider info, diagnosis, treatment details, and whether related to accident/workers' comp/other insurance), then sign and date it — incomplete forms will be returned. (3) Submit the claim by mail to MeridianHealth Claims Department, P.O. Box 5500, Hartford, CT 06102-5500, electronically via the member portal, or by fax to (860) 555-0177, retaining copies of all documents. (4) MeridianHealth processes the claim within 30 calendar days of complete submission (notifying the member within 15 calendar days if more information is needed), and pays via direct deposit or check, with the EOB detailing the reimbursement calculation.","STEP 1 — Collect all documentation
+Obtain itemized bills, receipts, and medical records. Ensure documents include: provider name, address, TIN; member name and DOB; date(s) of service; ICD-10 diagnosis codes; CPT/HCPCS procedure codes; itemized charges. <> STEP 2 — Complete Form MH-RC-200
+Download from www.meridianhealth.example.com/forms. Complete all sections: member info, provider info, diagnosis, treatment details, and whether related to accident/workers' comp/other insurance. Sign and date. Incomplete forms will be returned. <> STEP 3 — Submit the claim
+Mail to: MeridianHealth Claims Department, P.O. Box 5500, Hartford, CT 06102-5500. Or submit electronically via member portal or fax to (860) 555-0177. Retain copies of all documents. <> STEP 4 — Claim processing and payment
+Processing within 30 calendar days of complete submission. If additional info needed, notification within 15 calendar days. Payment via direct deposit or check. EOB details the reimbursement calculation."
+"Is bariatric surgery covered under the Bronze plan?","No, bariatric surgery is excluded under the Bronze plan. It is covered under Silver, Gold, and Platinum plans only when the member has a BMI of 40 or greater (or 35+ with a comorbidity), has 6+ months of documented non-surgical weight management failure, has the procedure performed at a Bariatric Center of Excellence, and has obtained prior authorization. The Supplemental Shield plan excludes bariatric surgery entirely.","[EXC-3.2]
+Bariatric Surgery. Excluded under Bronze. Silver, Gold, Platinum cover when: BMI >=40 or BMI >=35 with comorbidity; 6+ months documented non-surgical weight management failure; Bariatric Center of Excellence; prior auth obtained. Supplemental Shield: excluded entirely."
+"What is the waiting period for illness-related claims under the Supplemental Shield plan, and which benefits does it affect?","The Supplemental Shield plan has a 90-day waiting period for illness-related claims: claims arising from illness, disease, or non-accidental medical conditions are not payable during the first 90 days from the policy effective date. Accident-related claims, by contrast, have no waiting period and are eligible from the effective date. This waiting period applies to the plan's illness-triggered benefits, which include the Hospital Confinement Indemnity ($250/day, up to 30 days per confinement), the ICU Confinement Indemnity ($500/day, up to 15 days per confinement), and the Critical Illness Lump Sum ($10,000/$25,000/$50,000 on first diagnosis) when the underlying claim is illness-related rather than accident-related.","Illness Benefits: 90-day waiting period. Claims arising from illness, disease, or non-accidental medical conditions are not payable during the first 90 days from the policy effective date. <> Accident Benefits: No waiting period. Claims eligible from the policy effective date. <> The MeridianHealth Supplemental Shield plan is a non-ACA indemnity product that pays fixed cash benefits directly to the policyholder. Benefits are paid regardless of other insurance. The Supplemental Shield plan has a 90-day waiting period for illness-related claims; accident-related claims have no waiting period. Pre-existing conditions are subject to a 12-month waiting period from the policy effective date (see Terms and Conditions, Section 5.3). Available in all 22 licensed states except New York. <> | Benefit | Amount |
+|---|---|
+| Critical Illness Lump Sum (first diagnosis) | $10,000 / $25,000 / $50,000 (selected at enrollment) |
+| Hospital Confinement Indemnity | $250 per day (max 30 days per confinement) |
+| ICU Confinement Indemnity | $500 per day (max 15 days per confinement) |
+| Accident Emergency Room Visit | $200 per visit (max 3 visits per year) |
+| Accident Follow-Up Treatment | $75 per visit (max 6 visits per accident) |
+| Wellness Benefit (annual screening) | $100 per year |"
+"What is the difference in annual deductible between the Bronze and Platinum plans for an individual member?","The annual individual deductible is $7,500 for the Bronze 60 plan and $500 for the Platinum 90 plan — a difference of $7,000. Bronze has the highest deductible among the metal tiers while Platinum has the lowest.","| Benefit | Bronze 60 | Silver 70 | Gold 80 | Platinum 90 |
+|---|---|---|---|---|
+| Annual Deductible (Individual) | $7,500 | $4,500 | $1,750 | $500 |
+| Annual Deductible (Family) | $15,000 | $9,000 | $3,500 | $1,000 |
+| Out-of-Pocket Max (Individual) | $9,450 | $8,200 | $6,800 | $3,500 |
+| Out-of-Pocket Max (Family) | $18,900 | $16,400 | $13,600 | $7,000 |
+| Primary Care Visit Copay | $45 | $35 | $25 | $15 |
+| Specialist Visit Copay | $80 | $65 | $50 | $30 |
+| Urgent Care Copay | $75 | $60 | $45 | $25 |
+| Emergency Room Copay | $450 | $350 | $250 | $150 |
+| Coinsurance (after deductible) | 40% | 30% | 20% | 10% |
+| Inpatient Hospital (per day) | $750/day | $500/day | $350/day | $200/day |"
+"Does acupuncture require prior authorization on the Gold plan, and how many sessions are covered?","Yes. On the Gold plan, acupuncture for chronic pain is covered up to 20 sessions per year, and prior authorization is required after the 12th session. Acupuncture is excluded entirely under the Bronze, Silver, and Supplemental Shield plans — only Gold and Platinum cover it.","[EXC-3.5]
+Alternative Therapies. Acupuncture, naturopathy, homeopathy, Ayurvedic, Reiki excluded under Bronze, Silver, and Supplemental Shield. Gold and Platinum cover acupuncture for chronic pain: 20 sessions/year, PA after 12th. Chiropractic covered all ACA plans: 20 visits/year. <> | Service | Limitation | Applies To |
+|---|---|---|
+| PT / OT / Speech Therapy | 30 combined visits/year; PA beyond | All ACA plans |
+| Chiropractic Care | 20 visits/year | All ACA plans |
+| Acupuncture | 20 sessions/year (PA after 12th) | Gold, Platinum only |
+| Skilled Nursing Facility | 60 days/year | All ACA plans |
+| Home Health Care | 120 visits/year | All ACA plans |
+| Inpatient Rehab (substance use) | 2 admissions/year, 30 days each | All ACA plans |
+| Residential Treatment (MH) | 60 days/year; PA after 14 days | All ACA plans |
+| Infertility (IVF) | 3 cycles lifetime; $30K lifetime max | Gold, Platinum only |
+| Hearing Aids | 1/ear per 36 months; $2,500 max/ear | Silver, Gold, Platinum |
+| Pediatric Orthodontia | Medically necessary; $2K lifetime max | All ACA plans |
+| Hospital Indemnity (Supp.) | 30 days/confinement; $250/day | Supplemental Shield |
+| ICU Indemnity (Supp.) | 15 days/confinement; $500/day | Supplemental Shield |
+
+PA = Prior Authorization. Visit/day limits reset January 1. Lifetime limits do not reset."
+"What is the maximum number of combined physical therapy, occupational therapy, and speech therapy visits covered per plan year?","Physical therapy, occupational therapy, and speech-language pathology are covered up to 30 combined visits per plan year at the specialist copay under all ACA-compliant plans. Additional visits beyond 30 require prior authorization. Note that habilitative services for developmental conditions in dependents under age 19 are not subject to this visit limit.","Rehabilitative and Habilitative Services. Physical therapy, occupational therapy, and speech-language pathology are covered up to 30 combined visits per plan year at the specialist copay. Additional visits require prior authorization. Habilitative services for developmental conditions in dependents under age 19 are not subject to visit limits. <> | Service | Limitation | Applies To |
+|---|---|---|
+| PT / OT / Speech Therapy | 30 combined visits/year; PA beyond | All ACA plans |
+| Chiropractic Care | 20 visits/year | All ACA plans |
+| Acupuncture | 20 sessions/year (PA after 12th) | Gold, Platinum only |
+| Skilled Nursing Facility | 60 days/year | All ACA plans |
+| Home Health Care | 120 visits/year | All ACA plans |
+| Inpatient Rehab (substance use) | 2 admissions/year, 30 days each | All ACA plans |
+| Residential Treatment (MH) | 60 days/year; PA after 14 days | All ACA plans |
+| Infertility (IVF) | 3 cycles lifetime; $30K lifetime max | Gold, Platinum only |
+| Hearing Aids | 1/ear per 36 months; $2,500 max/ear | Silver, Gold, Platinum |
+| Pediatric Orthodontia | Medically necessary; $2K lifetime max | All ACA plans |
+| Hospital Indemnity (Supp.) | 30 days/confinement; $250/day | Supplemental Shield |
+| ICU Indemnity (Supp.) | 15 days/confinement; $500/day | Supplemental Shield |
+
+PA = Prior Authorization. Visit/day limits reset January 1. Lifetime limits do not reset."
+"If a member is admitted to an out-of-network hospital through the emergency room, how is the claim handled and what does the member owe?","Emergency room visits at any licensed facility — in-network or out-of-network — are covered at the in-network cost-sharing rate, per the No Surprises Act, regardless of the provider's network status. There is no balance billing for emergency services beyond the in-network allowed amount. If the member is admitted directly from the ER, the ER copay is waived and inpatient hospital benefits apply instead. The member (or someone on their behalf) should notify MeridianHealth within 48 hours of admission by calling (800) 555-0188.","Emergency Services. Emergency room visits at any licensed facility — in-network or out-of-network — are covered at the in-network cost-sharing rate. If the patient is admitted directly from the ER, the ER copay is waived and inpatient hospital benefits apply. <> MeridianHealth maintains a preferred provider organization (PPO) network across all 22 licensed states. Members may receive care from any licensed provider, but out-of-network services are subject to higher cost-sharing and balance billing. Out-of-network coinsurance is 50% after the out-of-network deductible, which is twice the in-network deductible for the member's plan tier. Out-of-network charges exceeding the Maximum Allowable Amount (MAA) are the member's responsibility and do not count toward the out-of-pocket maximum.
+
+Emergency services are always covered at the in-network cost-sharing rate regardless of provider network status, per the No Surprises Act. Air ambulance services from out-of-network providers are also covered at the in-network rate. <> Emergency Cashless Claims
+In an emergency, seek care at the nearest facility regardless of network status. Emergency services are covered at the in-network rate at any licensed facility per the No Surprises Act. Notify MeridianHealth within 48 hours of admission by calling (800) 555-0188. No balance billing for emergency services beyond the in-network allowed amount."

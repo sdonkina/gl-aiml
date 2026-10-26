@@ -1,0 +1,48 @@
+Business Context: StreamWave is a US-based, publicly listed OTT streaming platform with 40 million subscribers across North America and Western Europe. It offers three subscription tiers, Basic at $6.99 per month, Standard at $12.99 per month, and Premium at $18.99 per month, spanning originals, licensed movies, live sports, and ad-supported free trials, generating approximately $4.2 billion in annual revenue.
+
+In a highly competitive market with established players like Netflix, Disney+, Amazon Prime Video, and Hulu, subscriber churn is the single largest operational challenge. The company faces a monthly churn rate of 5.8%, translating to roughly 2.3 million cancellations or downgrades per month. Acquiring a replacement subscriber costs $65 compared to just $8 to $12 to retain an existing one, and customer lifetime value averages $112, well below the industry top-quartile benchmark of $145 to $160.
+
+Two prior retention attempts, a blanket discount and a generic email drip, both failed because they were designed without any data-driven understanding of subscriber behavior. Meanwhile, industry growth has slowed below 3%, competitors have pivoted to retention-first strategies, and StreamWave's board has mandated action by Q3 2026.
+
+Objective: The objective is to conduct a structured, first-cut, data-driven analysis to identify and validate the behavioral and pricing-related characteristics that distinguish churned subscribers from retained ones, establishing a baseline for future, more granular retention analysis.
+
+### `subscribers.csv`
+
+| Column | Type | Description |
+|---|---|---|
+| `subscriber_id` | string | Master identifier for the subscriber record. |
+| `account_id` | string | Account identifier; multiple subscribers can share one account |
+| `age` | int | Subscriber age in years |
+| `gender` | category | Subscriber gender identity |
+| `region` | category | Broad geographic region |
+| `country` | category | Subscriber country |
+| `signup_date` | date | Date subscriber first activated their account |
+| `current_plan` | category | Active subscription tier |
+| `signup_channel` | category | Acquisition channel at time of signup |
+| `device_primary` | category | Primary device used for streaming |
+| `household_size` | int | Number of people in subscriber's household |
+| `churn_status` | binary | Whether the subscriber churned during the observation window |
+| `churn_date` | date / null | Date of cancellation; null if retained |
+| `price_increase_flag` | binary | Whether subscriber experienced a price hike in the last 6 months |
+| `is_resub` | binary | Whether subscriber previously cancelled and reactivated |
+
+---
+
+### `watch_history.csv`
+
+| Column | Type | Description |
+|---|---|---|
+| `session_id` | string | Unique tracking identifier for the streaming session. |
+| `subscriber_id` | string | Cross-reference to the corresponding profile in the subscribers.csv dataset. |
+| `session_date` | datetime | Date and time the viewing session occurred |
+| `content_id` | string | Unique identifier for the content watched |
+| `content_category` | category | Genre or rights category of the content |
+| `content_length_minutes` | int | Total runtime of the content |
+| `watch_duration_minutes` | int | Actual minutes watched in the session |
+| `completion_pct` | float | Share of content watched (watch duration / content length) |
+| `device_used` | category | Device used during this specific session |
+| `time_of_day` | category | Time-of-day bucket when the session started |
+| `engagement_score` | float | Engagement metric scaled to a 0–100 range |
+
+
+---

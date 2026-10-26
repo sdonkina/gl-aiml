@@ -1,0 +1,300 @@
+Session Plan - Python Programming with GenAI
+Learning Objectives
+Learn how to interact with Codex to generate and execute code effectively
+Understand how to use for and while loops to control program flow and perform repetitive tasks
+Work with ordered collections using lists and tuples
+Store and retrieve key-value pairs using dictionaries
+Define and call reusable blocks of code using functions
+ 
+
+Agenda
+Getting familiar with Codex
+Loops (for and while)
+Lists and Tuples
+Dictionaries
+Functions
+ 
+
+Structure
+Duration	Topic	Details
+25 mins	Introduction of Mentor	
+The mentor will introduce themselves and interact with learners.
+5 mins	Explanation of Session Structure	
+Check if participants have watched the videos and explain the agenda.
+20 min	Concepts covered in the videos of the week	
+Use the Discussion Questions to gauge the level of understanding of the learners on videos covered during the week and identify areas to focus on Clarify conceptual queries on Python Programming
+10 mins	Getting familiar with Codex	
+Set up Codex in your IDE (Visual Studio Code) and sign in with your ChatGPT account
+Understand how to interact with Codex using clear prompts
+Generate, edit, and execute code within the IDE
+20 mins	Loops (for and while)	
+Use for loops to iterate over sequences
+Use while loops with conditions
+Apply loops to solve repetitive tasks
+20 mins	Lists and Tuples	
+Create and access elements
+Understand mutable vs immutable collections
+Perform slicing and iteration
+20 mins	Dictionaries	
+Create and manage key-value pairs
+Access, update, and delete entries
+Use common dictionary methods
+20 mins	Functions	
+Define functions using def
+Work with parameters and return values
+Reuse code effectively
+10 mins	Q&A	
+Clarify doubts related to Codex and Python concepts
+ 
+
+General Instructions
+This section provides clear teaching instructions for each topic.
+
+Open Codex and start writing the prompts mentioned here.
+
+After each prompt, refer to the teaching instructions below to understand what to teach and cover.
+
+
+
+Topic 1: For Loop
+Generation Prompt:
+I have five customers at Cred-Pay with IDs from cid-0001 to cid-0005. Can you write a Python program that prints each Customer ID one by one?
+
+Teaching Instructions:
+
+Explain that the AI has written code that automatically goes through each customer ID and prints it - the learner doesn't have to write five separate print statements.
+
+Explanation Prompt:
+Can you explain this code in simple terms? How does it know to print five IDs and stop?
+
+Teaching Instructions:
+
+Review the AI's explanation and make sure learners understand that the loop runs once for each number in the range, then stops automatically.
+
+Point out the for keyword and explain that this is called a "for loop" - it repeats a block of code a set number of times.
+
+Briefly clarify that range(1, 6) means "start at 1, stop before 6" - so it covers 1 through 5.
+
+Modification Prompt:
+The company just got 3 more customers, so now we have IDs up to cid-0008. Can you update the code to print all eight?
+
+Teaching Instructions:
+
+Show that only one small number in the code needed to change to handle more customers.
+
+Encourage learners to try different numbers to see how the output changes.
+
+
+
+Topic 2: While Loop 
+Generation Prompt:
+At Cred-Pay, we process customers one at a time. Can you write a program that starts with customer cid-0001 and keeps printing the next customer ID until it finishes cid-0005? But this time, I want it to keep going based on a condition rather than a fixed count.
+
+Teaching Instructions:
+
+Explain that the AI has used a different kind of loop called a "while loop" - it keeps running as long as a condition is true.
+
+Compare this with the code from Topic 1: both print the same five IDs, but this one uses a condition ("keep going while the counter is 5 or less") instead of a fixed range.
+
+Warn learners that if they forget the line that increases the counter, the program will run forever - this is called an "infinite loop."
+
+Explanation Prompt:
+How is this different from the code we wrote earlier to print customer IDs? When would I use this approach instead?
+
+Teaching Instructions:
+
+Review the AI's comparison and reinforce that the first approach is great when you know exactly how many times to repeat, while this approach is useful when you want to keep going until some condition changes.
+
+Give a relatable example: "Keep processing applications until the office closes" is a situation where this style of loop fits naturally.
+
+Modification Prompt:
+Instead of stopping at cid-0005, can you make it stop when it reaches the customer whose credit score is below 500? That would be cid-0004. Just use the customer number for now.
+
+Teaching Instructions:
+
+Show how the stopping condition changed from "reach customer 5" to "reach customer 4."
+
+Mention that later, when they learn to store actual data, they'll be able to check real credit scores instead of hard-coding the stop point.
+
+Topic 3: Lists
+Generation Prompt:
+I want to store all five credit scores - 650, 723, 581, 462, 773 - together in one place in Python. Then, I want the program to go through each score and print it along with its position (1st, 2nd, 3rd, etc.).
+
+Teaching Instructions:
+
+Explain that the AI has stored all five scores in a "list" - think of it as a single container that holds multiple values in order.
+
+Point out that the code reuses the looping technique from Topic 1 to go through each item in the list and print it.
+
+Clarify that Python counts positions starting from 0 (so the first item is at position 0), but the code can adjust this for display.
+
+Explanation Prompt:
+Can you explain what a list is and why it's better than creating five separate variables for each score?
+
+Teaching Instructions:
+
+Review the AI's explanation and emphasize that lists keep related data together, which makes it easy to loop through, search, or sort.
+
+Mention that lists can grow - you can add new scores later without rewriting the code.
+
+Modification Prompt:
+A new customer cid-0006 has a credit score of 690. Can you add it to the list and print all scores? This time, can you use the condition-based approach from Topic 2 to go through the list instead?
+
+Teaching Instructions:
+
+Show how .append() adds a new item to the end of the list.
+
+Highlight that the code now combines the condition-based loop (Topic 2) with a list (Topic 3) - learners are building on what they already know.
+
+Encourage learners to try removing or sorting items in the list on their own.
+
+
+
+Topic 4: Tuples
+Generation Prompt:
+Each customer at Cred-Pay has an ID and a debt status that shouldn't change once recorded. Can you store these pairs - like (cid-0001, in-debt), (cid-0002, no-debt), and so on for all five - in Python in a way that prevents accidental changes? Then print each pair.
+
+Teaching Instructions:
+
+Explain that the AI has used "tuples" - similar to lists, but once created, their values can't be changed. This makes them ideal for data that should stay fixed.
+
+Show the visual difference: tuples use parentheses () while lists use square brackets [].
+
+Demonstrate what happens if you try to change a value inside a tuple - Python will throw an error. This is a safety feature, not a bug.
+
+Explanation Prompt:
+What's the difference between storing data the way we did for credit scores versus this new approach? When should I use which?
+
+Teaching Instructions:
+
+Review the AI's explanation and use a simple analogy: a list is like a whiteboard (you can erase and rewrite), while a tuple is like a printed receipt (once printed, it's final).
+
+Relate to the business context: the credit score list might get updated, but a customer's recorded ID and debt status at the time of application should be locked in.
+
+Modification Prompt:
+Can you put all five of these pairs into a single collection, so I have everything in one place? Then go through it and print the Customer ID and Debt Status on separate lines for each customer.
+
+Teaching Instructions:
+
+Explain that the AI has created a "list of tuples" - a very common pattern that works like a simple table.
+
+Show how the loop pulls apart each pair automatically into two separate variables.
+
+Connect this to the original data table: each row is a pair, and the whole table is the collection.
+
+Topic 5: Dictionaries
+Generation Prompt:
+I want to store each Cred-Pay customer's complete details - credit score, age, debt status, and number of existing credit cards - in Python. I should be able to look up any customer by their ID and instantly see all their information. Can you set this up for all five customers and print everyone's details?
+
+Teaching Instructions:
+
+Explain that the AI has used a "dictionary" - a structure that lets you store data with labels. Instead of remembering that "credit score is the first item," you just ask for it by name.
+
+Show how this is an upgrade from earlier topics: lists stored raw numbers, tuples stored fixed pairs, but dictionaries store complete, labelled records.
+
+Point out the use of Customer ID as the lookup key - just like how you'd look up a word in a real dictionary, you look up a customer by their ID.
+
+Explanation Prompt:
+Can you explain how this way of storing data is different from what we used before for credit scores and customer pairs? Why is this better for complete customer records?
+
+Teaching Instructions:
+
+Review the AI's explanation and stress the key advantage: with a dictionary, you don't need to remember positions. You just ask for "credit_score" or "age" by name.
+
+Mention that each Customer ID must be unique - you can't have two cid-0001 entries - which perfectly matches how real customer databases work.
+
+Modification Prompt:
+A new customer has applied: cid-0006, credit score 690, age 35, no-debt, and 2 existing credit cards. Can you add them and then print only the customers who have a credit score above 600?
+
+Teaching Instructions:
+
+Show how adding a new customer is just one line of code.
+
+Highlight the filtering: the code loops through all customers and only prints those meeting the condition. This is exactly what Cred-Pay would do to shortlist eligible applicants.
+
+Connect the loop back to Topic 1 - learners are reusing the same looping concept but now with much richer data.
+
+Validation Prompt:
+Before adding a new customer, I want the program to check that: the credit score is between 300 and 900, the age is at least 18, and the debt status is either "in-debt" or "no-debt." If anything is wrong, it should show an error message instead of saving the record. Can you add these safety checks?
+
+Teaching Instructions:
+
+Explain that the program now checks the data before saving it, just like how a bank form would reject invalid entries.
+
+Walk through each check and show what happens when you pass bad data (e.g., a credit score of 1200 or an age of 10).
+
+Stress that checking data before storing it is a critical habit - bad data in means bad results out.
+
+Encourage learners to test with intentionally wrong values to see each error message.
+
+
+
+Topic 6: Basic Functions
+Generation Prompt:
+The code is getting long and repetitive. Can you help me organize it by creating separate reusable blocks for the following?
+
+One block that takes a customer's details and creates their record.
+
+One block that checks if the data is valid (using the safety rules from before) and adds the customer only if everything is correct.
+
+One block that takes a minimum credit score and gives back only the customers who meet or exceed that score.
+
+Then use these blocks to set up all five customers and show which ones are eligible with a minimum score of 600.
+
+Teaching Instructions:
+
+Explain that the AI has created "functions" - reusable blocks of code that you can call by name whenever you need them. Think of each function like a small machine: you feed it inputs, it does its job, and it gives you a result.
+
+Walk through each function and connect it to earlier work:
+
+The first one replaces the manual record creation from Topic 5.
+
+The second one wraps the safety checks from the previous validation prompt.
+
+The third one packages the filtering logic from the modification prompt.
+
+Highlight that now, adding a new customer is a single line - just call the function - instead of copying and pasting code every time.
+
+Explanation Prompt:
+Why is organizing code into these reusable blocks helpful? What if Cred-Pay grows from 5 customers to 5,000?
+
+Teaching Instructions:
+
+Review the AI's explanation and emphasize: if there's a bug in the safety checks, you fix it in one place and it's fixed everywhere.
+
+Use an analogy: a function is like a recipe card - you write the instructions once and follow them every time you cook that dish, instead of figuring it out from scratch each time.
+
+Mention that functions are the foundation of organized, professional code.
+
+Modification Prompt:
+Can you create one more reusable block that goes through all customers and gives back a quick summary: total number of customers, the average credit score, and how many are in debt? Then print the summary.
+
+Teaching Instructions:
+
+Show how this new function ties together almost everything learned: it uses the customer records (Topic 5), loops through them (Topic 1), and returns multiple values grouped together as a fixed set (Topic 4).
+
+Point out that the function does the math internally and just returns a clean summary - the caller doesn't need to know how it works inside.
+
+Encourage learners to add more stats on their own (e.g., average age, youngest customer).
+
+Validation Prompt:
+Can you update the safety-check block so it also verifies that: the Customer ID follows the format "cid-" followed by exactly four digits, the Customer ID doesn't already exist in our records, and the number of credit cards is not a negative number? It should clearly tell the user what went wrong if any check fails.
+
+Teaching Instructions:
+
+Explain that the program now catches even more types of bad data - duplicate IDs, wrong formats, and impossible values.
+
+Show that the function gives clear feedback on what went wrong, so the user knows exactly what to fix.
+
+Stress that this mirrors how real software works - validation rules grow over time as new problems are discovered, and having everything in one reusable block makes updates easy.
+
+Encourage learners to try adding a customer with a duplicate ID or a weird format like "abc-9999" to see the error messages.
+
+Important Points to Note
+Log in 5 minutes before the session and keep all materials ready.
+Refer to "VS Code - Setup" and "Codex - Setup" for installation and configuration.
+Refer to the general instructions on this page and the topic-wise teaching instructions.
+Be well prepared and review all relevant content beforehand.
+
+
+Power Ahead!

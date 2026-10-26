@@ -1,0 +1,24 @@
+# Hidden environment/config files
+.env
+.env.*
+config.local.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Notebook caches
+.ipynb_checkpoints/
+
+# Local runtime artifacts
+artifacts/
+vector_db/
+*.log
+
+# OS files
+.DS_Store
+
+# Secrets
+*.pem
+*.key

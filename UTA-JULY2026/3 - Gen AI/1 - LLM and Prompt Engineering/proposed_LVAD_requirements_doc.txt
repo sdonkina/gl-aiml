@@ -1,0 +1,59 @@
+**Manufacturing Requirement Specification for Left Ventricular Assist Device (LVAD)**
+
+**Client Details:**  
+Company Name: Cardiotech Medical Solutions Ltd.  
+Address: 789 Cardiac Drive, MedTech Industrial Zone, Houston, TX, USA  
+Contact: +1-888-456-7890  
+
+**Project Overview:**  
+We are seeking a manufacturing partner to produce a Left Ventricular Assist Device (LVAD) in compliance with international medical device standards. Below are the technical specifications and component requirements for the proposed LVAD system.
+
+**Technical Specifications:**  
+- **Device Type:** Implantable Mechanical Circulatory Support System  
+- **Intended Use:** Provides hemodynamic support for patients with advanced heart failure  
+- **Pump Type:** Axial flow or centrifugal flow blood pump  
+- **Flow Rate:** Adjustable, 2–10 L/min  
+- **Power Source:** Rechargeable lithium-ion battery, minimum 6-hour runtime  
+- **Weight:** ≤ 400 grams (implantable unit)  
+- **Noise Level:** ≤ 25 dB during operation  
+- **Materials:** Biocompatible titanium and medical-grade polymers  
+- **Coating:** Hemocompatible coating to prevent thrombosis  
+- **Sensors:** Integrated flow and pressure sensors for real-time monitoring  
+- **Connectivity:** Wireless telemetry for remote monitoring and programming  
+- **Backup System:** Redundant power supply with automatic switching  
+- **Sterilization:** Must withstand EtO or gamma sterilization  
+
+**Component Requirements:**  
+
+**1. Core Electronic Components**  
+| Component | Specification | Notes |
+|-----------|--------------|-------|
+| Microcontroller Unit (MCU) | ARM Cortex-M4 or equivalent | Controls pump speed and monitoring functions |
+| Battery | Lithium-ion, 14V, 5000mAh | Rechargeable, with fail-safe protection |
+| Communication Module | BLE 5.0 / RF Telemetry | Enables wireless communication |
+| Power Management IC | Medically certified PMIC | Ensures efficient power usage and safety |
+| Sensors | High-precision pressure and flow sensors | Real-time hemodynamic monitoring |
+
+**2. Mechanical Components**  
+| Component | Specification | Notes |
+|-----------|--------------|-------|
+| Pump Housing | Titanium Grade 23 | Biocompatible, corrosion-resistant |
+| Impeller | Polyetheretherketone (PEEK) | Low-friction, blood-contact safe |
+| Drive Mechanism | Magnetic levitation / Hydrodynamic bearings | Reduces wear and thrombosis risk |
+| Tubing | Medical-grade silicone | Flexible, kink-resistant |
+
+**3. Control and Monitoring Unit (External Controller)**  
+- **Display:** OLED touchscreen for patient and clinician interface  
+- **Alarm System:** Audio and visual alerts for low battery, occlusion, or malfunction  
+- **Data Storage:** Minimum 30-day operational history storage  
+- **Connectivity:** USB-C and Bluetooth for data transfer  
+- **Battery Backup:** Minimum 12-hour runtime in case of primary failure  
+
+**Regulatory and Compliance Requirements:**  
+- Must comply with **ISO 13485:2016** (Medical Device Quality Management System)  
+- Electrical safety and EMC compliance as per **IEC 60601-1 & IEC 60601-1-2**  
+- Must meet **ISO 14708-5** for Active Implantable Medical Devices  
+- Biocompatibility per **ISO 10993-1**  
+- U.S. FDA Class III regulatory approval required  
+
+

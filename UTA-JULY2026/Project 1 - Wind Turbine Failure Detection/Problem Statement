@@ -1,0 +1,162 @@
+Description
+Business Context
+
+Aeolus Renewables is an independent power producer operating a fleet of 1,150 onshore wind turbines (2.5 MW class) across 16 wind farms in the central plains region, with a combined installed capacity of roughly 2.87 GW. The company sells the electricity its turbines produce to the grid under long-term power purchase agreements, where revenue is tied directly to how much energy is delivered - so every hour a turbine is offline is energy that cannot be sold. A regional operations centre monitors the fleet around the clock, supported by an O&M organisation of about 140 field technicians. Each turbine continuously streams condition data through its SCADA (Supervisory Control and Data Acquisition) system - drivetrain vibration, bearing and oil temperatures, rotor and generator speed, and power output - recorded as 10-minute averages, the standard logging resolution for utility-scale turbines. The exact channels vary by turbine type, but together they describe the health of the main subassemblies in near-real time. Today, maintenance runs on a mix of fixed-interval inspections and reactive repair: technicians follow a scheduled service calendar, and the control room responds when an automated alarm trips or a turbine faults offline. 
+
+The most consequential components are in the drivetrain - the gearbox and main bearing - which are expensive, slow to procure, and require a mobile crane to replace. The gearbox alone represents approximately 13% of the overall capital cost of an onshore turbine, and within gearboxes the failures are dominated by bearings: one widely-cited breakdown puts the split at bearings (70%), gears (26%) and other causes (4%). The core problem is recognition. By the time a drivetrain fault has developed far enough to matter, its signature is real but still tangled in normal operating noise across many channels - and the existing fixed thresholds only trip once the fault is near-catastrophic, when the turbine is already offline or the component has seized. A genuinely fault drivetrain can run for hours or days looking "normal" to a threshold alarm, while a control-room analyst has no practical way to tell it apart from a healthy machine reacting to gusty wind. 
+
+The consequences: 
+
+Each unplanned drivetrain failure takes a turbine offline for an estimated 7–21 days, directly forfeiting saleable energy under the power purchase agreement.
+Emergency crane mobilisation and expedited parts run at a steep premium over the same work scheduled in advance, making an unplanned gearbox replacement a major cost event.
+A degrading main bearing left running frequently destroys the gearbox it feeds, converting a contained repair into a far larger one.
+Control-room analysts manually scan a flood of channels across 1,150 turbines, and alarm fatigue means genuine degradation signals slip through unnoticed until the machine faults offline. 
+Objective
+
+This proof of concept builds a drivetrain-condition classifier that reads each turbine's live sensor signature and labels the drivetrain as "fault" or "normal", serving operations-centre analysts and maintenance planners. The solution
+
+Reads each turbine's multi-channel sensor signature and produces a clear fault-vs-normal signal, so analysts can concentrate on the handful of machines genuinely in a fault condition rather than scanning the whole fleet.
+Distinguishes a truly fault drivetrain from normal operating noise more reliably than fixed thresholds, catching faults that are present but not yet severe enough to trip a catastrophic alarm - the window in which a turbine can still be stopped before a bearing fault cascades into gearbox destruction. Is deliberately tuned to favour catching true failures over avoiding false alerts, because a missed fault drivetrain costs far more than an unnecessary inspection.
+Establishes a measurable detection baseline on historical fleet data, so the capability's accuracy and its operational value can be judged on evidence before any wider rollout.
+Once proven at proof-of-concept scale, this capability would give Aeolus a defensible basis to move drivetrain maintenance from reactive repair toward condition-based intervention - reducing unplanned downtime, protecting saleable energy revenue, and containing repairs before they escalate across a 1150-turbine fleet.
+
+Data Description
+
+The dataset, wind_turbine_detection.csv, contains 10-minute SCADA records collected from 15 wind turbines for drivetrain fault prediction.
+
+Identifiers & Metadata
+timestamp: Date and time of the 10-minute SCADA record.
+turbine_id: Unique identifier assigned to each wind turbine.
+Environmental Conditions
+rated_power_kW: Rated maximum power output capacity of the turbine.
+wind_speed_mps: Wind speed measured in meters per second.
+wind_direction_deg: Direction from which the wind is blowing, measured in degrees.
+turbulence_intensity: Degree of fluctuation in wind speed relative to its average value.
+air_density_kgm3: Air density in kilograms per cubic meter, which influences energy production.
+ambient_temp_C: Ambient air temperature surrounding the turbine.
+humidity_pct: Relative humidity of the surrounding air expressed as a percentage.
+Operational Control & State
+power_output_kW: Actual electrical power generated by the turbine.
+rotor_speed_rpm: Rotational speed of the turbine rotor in revolutions per minute.
+generator_speed_rpm: Rotational speed of the generator shaft in revolutions per minute.
+blade_pitch_angle_deg: Blade pitch angle used to regulate rotor speed and power generation.
+yaw_misalignment_deg: Angular difference between the turbine's orientation and the incoming wind direction.
+Thermal Metrics (Component Health)
+gearbox_oil_temp_C: Temperature of the gearbox lubricating oil.
+gearbox_bearing_temp_C: Temperature of the gearbox bearings.
+generator_bearing_temp_C: Temperature of the generator bearings.
+generator_winding_temp_C: Temperature of the generator windings.
+main_bearing_temp_C: Temperature of the turbine's main bearing.
+nacelle_temp_C: Internal temperature inside the turbine nacelle.
+Vibration & Frequency Diagnostics
+drivetrain_vibration_rms_mmps: Overall drivetrain vibration level measured as RMS vibration velocity.
+tower_vibration_mmps: Vibration level of the turbine tower.
+vib_fft_bearing_bpfo: FFT vibration amplitude at the bearing outer-race defect frequency (BPFO).
+vib_fft_bearing_bpfi: FFT vibration amplitude at the bearing inner-race defect frequency (BPFI).
+vib_fft_gearmesh: FFT vibration amplitude at the gearbox gear mesh frequency.
+vib_fft_sideband: FFT vibration amplitude at sideband frequencies, often associated with localized mechanical faults.
+Lubrication System
+oil_particle_count: Number of wear particles detected in the lubricating oil.
+oil_pressure_bar: Lubrication system oil pressure measured in bar.
+Asset Lifecycle & Maintenance
+operating_hours_total: Total accumulated operating hours of the turbine.
+cumulative_energy_MWh: Total lifetime energy generated by the turbine in megawatt-hours.
+load_cycles: Number of load cycles experienced by the turbine components.
+hours_since_last_maintenance: Operating hours elapsed since the last maintenance activity.
+prior_fault_count: Total number of previously recorded fault events.
+component_age_days: Age of the monitored component in days.
+Target Variable
+failure: Binary target variable indicating drivetrain condition (0 = Normal operation, 1 = Fault detected).
+Choosing Your Path
+
+The project is available under multiple paths, so you can build toward the role you actually aspire to be in. Here's a quick guide to help you pick the path that fits your career aspirations.
+
+Full-Code Path: Choose this if you see yourself in hands-on technical roles - writing, building, and shipping solutions from the ground up.
+This path suits aspiring developers, data scientists, and engineers who enjoy working directly with code, debugging, and owning the technical craft of a solution end-to-end.
+Low-Code Path: Choose this if you're headed toward leadership or client-facing positions where you need to code without necessarily writing it day-to-day.
+The focus here is on reviewing solutions, interpreting outputs, making informed recommendations, and translating technical work into business language, and is suitable for future team leads, product managers, and consultants.
+General Submission Guidelines
+Submissions found copied or plagiarized from other learners will be marked zero.
+Post-deadline submissions will not be accepted for evaluation.
+For common project-related queries, refer to the FAQ page(s).
+Path-wise Submission Guidelines
+Below is a concise breakdown of the solution approach, submission format, and best practices for each path, so that you know exactly what to build, how to present it, and what to submit.
+
+Full-Code Path
+Solution Approach
+You'll receive a notebook template with section headers aligned to the rubric. 
+Write the required code under each section. 
+Plan your approach before coding, use markdown cells to narrate your reasoning, and add inline comments for non-obvious logic. 
+Run all cells top-to-bottom with a clean kernel - every expected output must be visible, with no errors.
+Address all rubric sections meaningfully
+Submission Format
+Export the notebook to HTML and verify it renders correctly in a browser before submitting. 
+Only the .html file is accepted- .ipynb files will not be evaluated.
+Best Practices
+Do:
+Follow consistent naming conventions
+Display outputs (plots, tables) explicitly rather than just computing them
+Narrate your logic through markdown cells between code blocks
+Don't:
+Submit the .ipynb file
+Leave cells unexecuted or with errors
+Skip sections
+Low-Code Path
+Solution Approach
+You'll receive a pre-filled notebook with partial code - certain cells contain blanks and commented code snippets scoped to specific tasks. 
+Fill in the blanks, uncomment the relevant code snippets, run the notebook end-to-end, and capture outputs (charts, tables, printed results) via cropped, labelled screenshots. 
+Then transfer your findings, insights, and recommendations into a business presentation (a sample business presentation template is provided).
+Address all rubric sections meaningfully
+Submission Format
+Submit the completed presentation as a .pdf file (not .pptx). 
+The notebook itself is not to be submitted.
+
+Best Practices
+
+Do:
+Your presentation should cover a business overview of the problem and solution approach, key findings and insights that can drive decisions, and clear business recommendations. 
+Articulate insights in your own words.
+Explain what each visualization shows and why it matters, and back recommendations with data. 
+Including the potential benefits of implementing the solution will give your submission an edge. 
+
+on't: 
+Paste raw code or tracebacks into slides
+Submit the notebook, or copy outputs without explaining their significance.
+Power Ahead!
+
+Rubric
+
+Criteria
+Exploratory Data Analysis: Include problem definition, data overview, univariate analysis, bivariate analysis, and multivariate analysis; use appropriate visualizations to identify patterns and insights; provide key meaningful observations on individual variables and the relationship between variables.
+Points
+10
+
+Criteria
+Data Preprocessing: Perform missing value detection and treatment if needed with rationale; perform feature engineering if needed with rationale; split the data for modeling.
+Points
+7
+
+Criteria
+Model Building - Baseline: Choose the model evaluation criterion with proper rationale; build 5 classification models (decision tree, random forest, gradient boosting, XGBoost, artificial neural network); evaluate and comment on the performance of the models built.
+Points
+16
+
+Criteria
+Hyperparameter Tuning: Choose at least 2 best performing models among the previously built baseline models with proper rationale; tune the chosen models; evaluate and comment on the performance of the tuned models.
+Points
+11
+
+Criteria
+Model Performances: Compare the performance of the tuned models; choose the best model with proper rationale; evaluate and comment on the performance of the best model; check and comment on the important features being used by the best model for predictions.
+Points
+6
+
+Criteria
+Actionable Insights &amp; Recommendations: Conclude with the key takeaways for the business.
+Points
+6
+
+Criteria
+Submission Overall Quality: Demonstrate structure and flow; ensure crispness and visual appeal.
+Points
+4

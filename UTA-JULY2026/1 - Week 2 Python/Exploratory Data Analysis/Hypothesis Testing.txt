@@ -1,0 +1,105 @@
+UrbanCart Hypothesis Testing Plan
+
+Purpose
+This file defines the proposed hypothesis-testing approach before any formal statistical analysis is run. It focuses on which test to use, which subset of data is required, and what assumptions or preparation steps are necessary.
+
+General testing framework
+- Primary retention outcome: `returned_after_first_order_30d`
+- Secondary retention outcomes for robustness: `returned_after_first_order_60d`, `returned_after_first_order_90d`
+- Primary unit of analysis for Hypotheses 1 and 2: customer first order
+- Important censoring rule: only include customers with a complete observation window for the retention outcome being tested
+  - 30-day tests: `full_30d_observation_flag = 1`
+  - 60-day tests: `full_60d_observation_flag = 1`
+  - 90-day tests: `full_90d_observation_flag = 1`
+- Significance level: `alpha = 0.05`
+- Effect reporting: report p-values, confidence intervals where applicable, and effect sizes
+- Multiple testing note: if several related predictors are tested separately within the same hypothesis, use a multiple-comparison adjustment such as Benjamini-Hochberg
+
+Hypothesis 1
+Statement
+Customers with more reliable delivery experiences are more likely to be retained.
+
+Statistical test to be performed
+- Primary test: binary logistic regression
+- Outcome variable: return within the retention window (`returned_after_first_order_30d` as primary)
+- Main predictors from the first order experience:
+  - `delay_minutes`
+  - `delivery_status`
+  - `order_accuracy`
+  - `customer_rating`
+- Recommended supplementary tests:
+  - Mann-Whitney U test for `delay_minutes` and `customer_rating` by retained vs. not retained group
+  - Chi-square test of independence for `delivery_status` and `order_accuracy` against retention
+
+Subset of data required
+- Use the order-level dataset: `data/interim/order_level_analysis_dataset.csv`
+- Keep only each customer's first order: `customer_order_number = 1`
+- Keep only customers eligible for the tested window:
+  - primary analysis: customers whose first order has a full 30-day look-forward window
+  - robustness analyses: equivalent 60-day and 90-day eligible subsets
+
+Other necessary details
+- Why first order: it preserves temporal order by using the observed delivery experience before the return decision occurs
+- Do not use customer-level averages such as `avg_delay_minutes` or `avg_customer_rating` for this specific retention test, because those summary fields include later orders and would leak future information
+- Suggested control variables:
+  - `customer_segment`
+  - `preferred_device`
+  - `age_group`
+  - `city` or `state`
+  - `order_value_usd`
+  - `items_count`
+- Assumptions:
+  - independent observations at the customer level
+  - log-odds are reasonably linear for continuous predictors, or else bucket/transform them
+  - no severe multicollinearity among delivery-quality predictors
+  - expected cell counts are adequate for chi-square tests; otherwise combine sparse categories
+- Key metrics to report:
+  - odds ratios from logistic regression
+  - group medians or means for retained vs. not retained customers
+  - retention rate by delivery-status and accuracy category
+
+Hypothesis 2
+Statement
+Customers who receive more personalized or promotion-driven engagement are more likely to place repeat orders and remain active.
+
+Statistical test to be performed
+- Testable portion only: promotion-driven engagement
+- Primary test: binary logistic regression
+- Outcome variable: return within the retention window (`returned_after_first_order_30d` as primary)
+- Main promotion predictors from the first order:
+  - `promo_used`
+  - `discount_amount_usd`
+- Recommended supplementary tests:
+  - Chi-square test of independence for `promo_used` against retention
+  - Mann-Whitney U test for `discount_amount_usd` by retained vs. not retained group
+
+Subset of data required
+- Use the order-level dataset: `data/interim/order_level_analysis_dataset.csv`
+- Keep only each customer's first order: `customer_order_number = 1`
+- Keep only customers eligible for the tested window:
+  - primary analysis: full 30-day observation
+  - robustness analyses: full 60-day and 90-day observation
+
+Other necessary details
+- Limitation: personalization cannot be tested with the available data because there are no fields for campaign exposure, recommendation targeting, push/email engagement, or individualized offers
+- This hypothesis should therefore be rewritten operationally for testing as:
+  - "Customers whose first order used a promotion are more likely to return within the retention window."
+- Why first order: using later customer-level promo rates would leak future behavior into the predictor
+- Suggested control variables:
+  - `customer_segment`
+  - `preferred_device`
+  - `vendor_category`
+  - `delivery_type`
+  - `order_value_usd`
+  - delivery experience variables from Hypothesis 1, because promotion effects may be confounded by service quality
+- Assumptions:
+  - same logistic-regression assumptions as above
+  - if `discount_amount_usd` is heavily right-skewed, consider using promotion buckets or a transformed version
+- Key metrics to report:
+  - odds ratio for promo usage
+  - retention rate for promo vs. non-promo first orders
+  - median or average discount among retained vs. not retained customers
+
+Recommended order of execution
+1. Run Hypothesis 1 first because it is fully testable and the features already exist at the first-order level.
+2. Run Hypothesis 2 second, restricted to the promotion component only.

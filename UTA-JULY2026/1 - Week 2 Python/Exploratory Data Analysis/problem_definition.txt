@@ -1,0 +1,30 @@
+UrbanCart Customer Retention Analysis
+
+1. Business Context
+UrbanCart is a US-based online delivery platform that connects customers with local vendors such as restaurants, grocery stores, pharmacies, and retail outlets. It operates in major US cities and offers on-demand, scheduled, and express delivery services. Because the last-mile delivery market is highly competitive, customer retention is a critical business priority. Retaining existing customers is more cost-effective than acquiring new ones, and stronger retention improves customer lifetime value, profitability, and long-term unit economics. UrbanCart therefore needs to understand which customer, service, and experience-related factors are most closely associated with repeat engagement.
+
+2. Project Objective
+The objective of this project is to perform Exploratory Data Analysis (EDA) and basic hypothesis testing to identify the main factors that influence customer retention at UrbanCart. The analysis should help determine which operational, behavioral, and experience variables are linked to continued customer activity and repeat usage. The final goal is to generate actionable insights that can support retention-focused business decisions.
+
+3. Key Performance Indicators (KPIs)
+KPI 1: Customer Retention Rate
+Definition: The percentage of customers who remain active over a defined time period.
+Why it matters: This is the primary indicator of whether UrbanCart is successfully keeping users engaged and returning to the platform.
+
+KPI 2: Repeat Order Rate
+Definition: The percentage of customers who place more than one order within a defined time window.
+Why it matters: This measures ongoing engagement and helps distinguish one-time users from customers who build repeat purchasing habits.
+
+KPI 3: Average Order Frequency
+Definition: The average number of orders placed per customer during a selected period.
+Why it matters: This reflects depth of engagement and can indicate whether retained customers are becoming more valuable over time.
+
+4. Key Hypotheses
+Hypothesis 1: Customers with more reliable delivery experiences are more likely to be retained.
+Rationale: Delays, cancellations, and inconsistent service quality may reduce trust and discourage repeat use.
+
+Hypothesis 2: Customers who receive more personalized or promotion-driven engagement are more likely to place repeat orders and remain active.
+Rationale: Personalized offers, targeted recommendations, and relevant incentives may strengthen customer loyalty and increase return behavior.
+
+Hypothesis 3: Customers who use UrbanCart across multiple vendor categories or service types are more likely to be retained.
+Rationale: Broader platform usage may increase dependence on the service and make customers less likely to churn.

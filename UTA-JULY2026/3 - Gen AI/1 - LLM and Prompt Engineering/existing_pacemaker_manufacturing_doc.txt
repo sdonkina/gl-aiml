@@ -1,0 +1,119 @@
+Manufacturing Documentation for PaceWell Internal Pacemaker
+
+1. Manufacturer Details
+Company Name: MedTech Innovations Pvt. Ltd.
+Address: 456 Biomedical Avenue, HealthTech Park, Boston, MA, USA
+Contact: +1-800-789-4567
+Website: www.medtechinnovations.com
+
+2. Device Overview
+Product Specifications
+Product Name: PaceWell Internal Pacemaker
+Classification: Class III Medical Device (FDA)
+Intended Use: Provides electrical stimulation to regulate heartbeats in patients with arrhythmia.
+
+Technical Specifications
+Pulse Generator: Programmable output, 0.1–10V amplitude
+Pacing Modes: Single-chamber, dual-chamber, and biventricular pacing
+Battery Life: 8–12 years (Lithium-Iodine)
+Lead System: Unipolar and bipolar electrode configurations
+Frequency Range: 30–180 bpm, adjustable in 1 bpm increments
+Power Supply: Hermetically sealed lithium battery
+Operating Temperature: -10°C to 55°C
+
+Safety Features
+Automatic Shutdown: Protection against voltage spikes and overheating.
+Current Limiter: Prevents surges beyond 10V.
+Electromagnetic Interference (EMI) Shielding: Protects against external signal disruptions.
+
+Connectivity
+Programming Interface: Wireless telemetry for remote adjustments
+Charging & Firmware Updates: Non-invasive inductive charging and firmware upgrades
+
+3. Components and Suppliers
+3.1. Core Electronic Components
+| Component | Model | Supplier | Function |
+|-----------|--------|-----------|------------|
+| Microcontroller Unit (MCU) | MSP430FR6989 | Texas Instruments, USA | Manages pacing algorithms and device operations. |
+| Battery | CFx-Li-I2 | Greatbatch Medical, USA | Long-lasting, high-energy lithium battery. |
+| Electrodes | Platinum-Iridium Alloy | Medtronic, USA | Biocompatible, corrosion-resistant pacing electrodes. |
+| Capacitors | Medical-Grade Tantalum | AVX Corporation, USA | Stabilizes electrical pulses. |
+| Communication Module | Bluetooth Low Energy (BLE) | Nordic Semiconductor, Norway | Enables remote telemetry programming. |
+
+3.2. Mechanical Components
+| Component | Material/Model | Supplier | Specifications |
+|-----------|---------------|-----------|-----------------|
+| Housing Material | Titanium Alloy (Grade 5) | Carpenter Technology, USA | Biocompatible, lightweight, corrosion-resistant. |
+| Insulation | Medical-Grade Silicone Rubber | Dow Corning, USA | Protects internal circuits from body fluids. |
+| Lead Wires | Coated MP35N Alloy | Fort Wayne Metals, USA | Flexible, high-strength, fatigue-resistant. |
+
+3.3. PCB and Circuit Components
+PCB Material: High-Density Interconnect (HDI), multilayer board with 1.2 mm thickness, 50 µm copper layer.
+Fabrication Standard: IPC Class 3
+Supplier: TTM Technologies, USA
+
+3.4. Packaging Materials
+Primary Packaging:
+Sterile pouches: Tyvek medical-grade (by DuPont, USA).
+Sealing Process: Heat-sealed using MedLine Impulse Sealer.
+
+Secondary Packaging:
+Corrugated cardboard with tamper-evident holographic seals (by WestRock, USA).
+
+4. Manufacturing Machinery and Equipment
+4.1. PCB Assembly Equipment
+| Equipment | Model | Specifications |
+|------------|--------|----------------|
+| SMT Pick-and-Place Machine | ASM Siplace SX2 | 30,000 components/hour, ± 0.02 mm accuracy |
+| Reflow Soldering Oven | Heller 1936 MK7 | ±1°C accuracy, nitrogen environment |
+
+4.2. Mechanical Assembly Equipment
+| Equipment | Model | Function |
+|------------|--------|----------|
+| Laser Welding Machine | Trumpf TruLaser 5000 | Hermetically seals titanium casing. |
+| Ultrasonic Bonding Machine | Emerson Branson 2000Xc | Attaches lead wires to electrodes securely. |
+
+4.3. Calibration and Testing Equipment
+| Equipment | Model | Purpose |
+|------------|--------|---------|
+| Oscilloscope | Tektronix MDO3000 | Measures pulse output waveform accuracy. |
+| Signal Generator | Keysight 33522B | Simulates cardiac activity for testing. |
+| Multimeter | Fluke 87V | Measures voltage, current, and resistance. |
+
+5. Manufacturing Process Workflow
+Step 1: Component Sourcing & Inspection
+- Visual and functional testing against ISO and FDA standards.
+
+Step 2: PCB Assembly
+- SMT pick-and-place process → Reflow soldering → Automated Optical Inspection (AOI).
+
+Step 3: Housing Production
+- CNC machining of titanium casings.
+- Surface finishing & quality control checks.
+
+Step 4: Device Assembly
+- PCB, battery, and components integrated.
+- Laser welding ensures a hermetic seal.
+
+Step 5: Calibration & Testing
+- Pulse waveform accuracy validation.
+- Voltage and current calibration.
+
+Step 6: Sterilization
+- Ethylene Oxide (EtO) sterilization.
+- Residual gas verification for safety compliance.
+
+Step 7: Packaging & Labeling
+- FDA-compliant labeling with UDI codes.
+- User manuals included in multi-language formats.
+
+6. Regulatory and Quality Standards
+- ISO 13485:2016 Certified (Quality Management System)
+- IEC 60601-1 (Electrical Safety Compliance)
+- IEC 60601-1-2 (EMC Testing Compliance)
+- ISO 14708-1 (Active Implantable Medical Devices Compliance)
+- 21 CFR Part 820 QSR (FDA Compliance)
+
+7. Maintenance and Support
+- Preventive Maintenance: Annual recalibration of assembly & testing equipment.
+- Troubleshooting: 24/7 technical support for replacement parts and guidance.

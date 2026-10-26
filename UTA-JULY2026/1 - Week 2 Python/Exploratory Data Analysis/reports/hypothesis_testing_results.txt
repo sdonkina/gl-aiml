@@ -1,0 +1,133 @@
+UrbanCart Hypothesis Testing Results
+
+Method note
+- Unit of analysis: customer first order only
+- Eligible cohorts exclude customers without a full observation window for the tested outcome
+- Primary outcome per section is first-order return within 30 days, with 60-day and 90-day robustness checks
+- Logistic regressions were estimated with a dependency-free Newton-Raphson implementation in Python
+
+Cohort overview: 30-day window
+- Eligible first-order customers: 4855
+- Retained within 30 days: 3931/4855 (81.0%)
+
+Cohort overview: 60-day window
+- Eligible first-order customers: 4666
+- Retained within 60 days: 4386/4666 (94.0%)
+
+Cohort overview: 90-day window
+- Eligible first-order customers: 4481
+- Retained within 90 days: 4373/4481 (97.6%)
+
+Hypothesis 1: Delivery reliability and 30-day retention
+Descriptive view
+- delivery_status = Delayed: 899/1160 (77.5%)
+- delivery_status = On-Time: 3032/3695 (82.1%)
+- order_accuracy = Correct: 3607/4448 (81.1%)
+- order_accuracy = Partial: 243/304 (79.9%)
+- order_accuracy = Wrong: 81/103 (78.6%)
+- Delay minutes: retained mean=4.68, median=0.00; not retained mean=6.43, median=0.00
+- Customer rating: retained mean=3.94, median=4.00; not retained mean=3.62, median=4.00
+Statistical tests
+- Chi-square for delivery status vs retention: chi2=11.896, df=1, p=0.0006, BH-adjusted p=0.0007
+- Chi-square for order accuracy vs retention: chi2=0.618, df=2, p=0.7343, BH-adjusted p=0.7343
+- Mann-Whitney U for delay minutes: U=1705110.5, z=-3.872, p=0.0001, BH-adjusted p=0.0002
+- Mann-Whitney U for customer rating: U=1511277.5, z=-8.324, p=<0.0001, BH-adjusted p=<0.0001
+Adjusted logistic regression
+- n=4855, McFadden pseudo-R2=0.1182
+- delay_minutes: OR=1.001, 95% CI [0.993, 1.008], p=0.8707
+- customer_rating: OR=1.357, 95% CI [1.252, 1.470], p=<0.0001
+- accuracy_partial: OR=0.896, 95% CI [0.658, 1.220], p=0.4840
+- accuracy_wrong: OR=0.880, 95% CI [0.527, 1.469], p=0.6244
+
+Hypothesis 1: Delivery reliability and 60-day retention
+Descriptive view
+- delivery_status = Delayed: 1031/1116 (92.4%)
+- delivery_status = On-Time: 3355/3550 (94.5%)
+- order_accuracy = Correct: 4017/4276 (93.9%)
+- order_accuracy = Partial: 280/291 (96.2%)
+- order_accuracy = Wrong: 89/99 (89.9%)
+- Delay minutes: retained mean=4.87, median=0.00; not retained mean=7.31, median=0.00
+- Customer rating: retained mean=3.91, median=4.00; not retained mean=3.48, median=3.50
+Statistical tests
+- Chi-square for delivery status vs retention: chi2=6.788, df=1, p=0.0092, BH-adjusted p=0.0122
+- Chi-square for order accuracy vs retention: chi2=5.519, df=2, p=0.0633, BH-adjusted p=0.0633
+- Mann-Whitney U for delay minutes: U=564982.0, z=-3.001, p=0.0027, BH-adjusted p=0.0054
+- Mann-Whitney U for customer rating: U=474303.0, z=-6.694, p=<0.0001, BH-adjusted p=<0.0001
+Adjusted logistic regression
+- n=4666, McFadden pseudo-R2=0.1692
+- delay_minutes: OR=1.000, 95% CI [0.987, 1.012], p=0.9447
+- customer_rating: OR=1.459, 95% CI [1.283, 1.658], p=<0.0001
+- accuracy_partial: OR=1.648, 95% CI [0.872, 3.114], p=0.1242
+- accuracy_wrong: OR=0.590, 95% CI [0.288, 1.211], p=0.1506
+
+Hypothesis 1: Delivery reliability and 90-day retention
+Descriptive view
+- delivery_status = Delayed: 1037/1075 (96.5%)
+- delivery_status = On-Time: 3336/3406 (97.9%)
+- order_accuracy = Correct: 3999/4101 (97.5%)
+- order_accuracy = Partial: 281/284 (98.9%)
+- order_accuracy = Wrong: 93/96 (96.9%)
+- Delay minutes: retained mean=4.95, median=0.00; not retained mean=7.81, median=0.00
+- Customer rating: retained mean=3.89, median=4.00; not retained mean=3.41, median=3.00
+Statistical tests
+- Chi-square for delivery status vs retention: chi2=7.606, df=1, p=0.0058, BH-adjusted p=0.0078
+- Chi-square for order accuracy vs retention: chi2=2.525, df=2, p=0.2829, BH-adjusted p=0.2829
+- Mann-Whitney U for delay minutes: U=206648.5, z=-2.965, p=0.0030, BH-adjusted p=0.0060
+- Mann-Whitney U for customer rating: U=174717.5, z=-4.842, p=<0.0001, BH-adjusted p=<0.0001
+Adjusted logistic regression
+- Model error: Logistic regression did not converge
+
+Hypothesis 2: Promotion-driven engagement and 30-day retention
+Descriptive view
+- promo_used = No: 2345/2910 (80.6%)
+- promo_used = Yes: 1586/1945 (81.5%)
+- Discount amount across all first orders: retained mean=3.15, median=0.00; not retained mean=2.89, median=0.00
+- Discount amount among promo users only: retained mean=7.82, median=5.95; not retained mean=7.43, median=5.56
+Statistical tests
+- Chi-square for promo usage vs retention: chi2=0.695, df=1, p=0.4046, BH-adjusted p=0.4046
+- Mann-Whitney U for discount amount across all first orders: U=1777057.5, z=-1.150, p=0.2500, BH-adjusted p=0.3750
+- Mann-Whitney U for discount amount among promo users: U=272740.0, z=-1.243, p=0.2137, BH-adjusted p=0.3750
+Adjusted logistic regression
+- n=4855, McFadden pseudo-R2=0.1188
+- promo_used_yes: OR=1.062, 95% CI [0.908, 1.241], p=0.4511
+Promo-user discount-depth model
+- n=1945, McFadden pseudo-R2=0.1232
+- discount_amount_usd: OR=1.024, 95% CI [0.987, 1.061], p=0.2022
+
+Hypothesis 2: Promotion-driven engagement and 60-day retention
+Descriptive view
+- promo_used = No: 2617/2796 (93.6%)
+- promo_used = Yes: 1769/1870 (94.6%)
+- Discount amount across all first orders: retained mean=3.14, median=0.00; not retained mean=2.53, median=0.00
+- Discount amount among promo users only: retained mean=7.79, median=5.90; not retained mean=7.00, median=4.98
+Statistical tests
+- Chi-square for promo usage vs retention: chi2=1.990, df=1, p=0.1583, BH-adjusted p=0.1583
+- Mann-Whitney U for discount amount across all first orders: U=579030.5, z=-1.808, p=0.0706, BH-adjusted p=0.1408
+- Mann-Whitney U for discount amount among promo users: U=80492.0, z=-1.675, p=0.0938, BH-adjusted p=0.1408
+Adjusted logistic regression
+- n=4666, McFadden pseudo-R2=0.1682
+- promo_used_yes: OR=1.217, 95% CI [0.935, 1.585], p=0.1443
+Promo-user discount-depth model
+- n=1870, McFadden pseudo-R2=0.1654
+- discount_amount_usd: OR=1.023, 95% CI [0.958, 1.093], p=0.4911
+
+Hypothesis 2: Promotion-driven engagement and 90-day retention
+Descriptive view
+- promo_used = No: 2609/2678 (97.4%)
+- promo_used = Yes: 1764/1803 (97.8%)
+- Discount amount across all first orders: retained mean=3.13, median=0.00; not retained mean=2.56, median=0.00
+- Discount amount among promo users only: retained mean=7.75, median=5.86; not retained mean=7.09, median=5.68
+Statistical tests
+- Chi-square for promo usage vs retention: chi2=0.783, df=1, p=0.3761, BH-adjusted p=0.5030
+- Mann-Whitney U for discount amount across all first orders: U=224006.0, z=-1.030, p=0.3028, BH-adjusted p=0.5030
+- Mann-Whitney U for discount amount among promo users: U=32244.5, z=-0.670, p=0.5030, BH-adjusted p=0.5030
+Adjusted logistic regression
+- Model error: Logistic regression did not converge
+Promo-user discount-depth model
+- Model error: Logistic regression did not converge
+
+Overall conclusion
+- Hypothesis 1 is supported in direåction, with the strongest and most consistent signal coming from customer rating. Customers with delayed first orders also show lower retention descriptively, but delay minutes are not a stable adjusted predictor once the other covariates are included.
+- Hypothesis 2 is not supported for the promotion-driven portion of the question. Promo usage and discount depth do not show statistically reliable retention lifts in these first-order models.
+- Personalization still cannot be tested with the available data because there are no exposure fields for campaigns, recommendations, or CRM interactions.
+- The 90-day logistic models are less stable because nearly all eligible customers return within 90 days, leaving very few non-return cases for estimation.

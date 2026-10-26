@@ -1,0 +1,256 @@
+UrbanCart Data Dictionary and Hypothesis Coverage Review
+
+Review date: 2026-05-06
+
+Overview
+Three raw datasets are available for the EDA project:
+- `customers.csv`
+- `orders.csv`
+- `deliveries.csv`
+
+Observed dataset sizes
+- `customers.csv`: 5,000 rows
+- `orders.csv`: 73,022 rows
+- `deliveries.csv`: 73,022 rows
+
+Join structure
+- `customers.customer_id` joins to `orders.customer_id`
+- `orders.order_id` joins to `deliveries.order_id`
+- All orders currently have a matching delivery record, and all delivery records have a matching order record
+
+Data quality snapshot
+- No missing values were detected in any column across the three files
+- `customer_id`, `order_id`, and `delivery_id` appear to be unique identifiers
+- Date coverage observed:
+  - Customer signup dates: 2024-01-01 to 2026-03-31
+  - Order dates: 2024-01-02 to 2026-04-14
+
+1. Data Dictionary
+
+Dataset: `customers.csv`
+Purpose: Customer profile and account-level attributes
+
+- `customer_id`
+  - Description: Unique identifier for each customer
+  - Type: Categorical ID
+  - Example use: Joining customers to their order history
+
+- `signup_date`
+  - Description: Date the customer registered on the platform
+  - Type: Date
+  - Example use: Building customer tenure and cohort analyses
+
+- `city`
+  - Description: Customer city
+  - Type: Categorical
+  - Example use: Geographic segmentation
+
+- `state`
+  - Description: Customer state
+  - Type: Categorical
+  - Example use: Regional comparisons
+
+- `age_group`
+  - Description: Customer age band
+  - Type: Ordinal categorical
+  - Values observed: `18-25`, `26-35`, `36-45`, `46-55`, `56+`
+  - Example use: Demographic comparisons in retention
+
+- `gender`
+  - Description: Customer gender category
+  - Type: Categorical
+  - Values observed: `Female`, `Male`, `Other`
+  - Example use: Demographic segmentation
+
+- `customer_segment`
+  - Description: Business-defined customer segment
+  - Type: Categorical
+  - Values observed: `New`, `Regular`, `Premium`
+  - Example use: Comparing behavior across customer tiers
+
+- `preferred_device`
+  - Description: Primary device used by the customer
+  - Type: Categorical
+  - Values observed: `Mobile App`, `Web`
+  - Example use: Studying behavioral differences by platform
+
+Dataset: `orders.csv`
+Purpose: Order transaction history and commercial behavior
+
+- `order_id`
+  - Description: Unique identifier for each order
+  - Type: Categorical ID
+  - Example use: Joining orders to deliveries
+
+- `customer_id`
+  - Description: Identifier linking each order to a customer
+  - Type: Categorical ID
+  - Example use: Creating customer-level ordering metrics
+
+- `order_date`
+  - Description: Date the order was placed
+  - Type: Date
+  - Example use: Measuring repeat behavior over time
+
+- `vendor_id`
+  - Description: Identifier for the vendor fulfilling the order
+  - Type: Categorical ID
+  - Example use: Vendor-level performance or concentration analysis
+
+- `vendor_category`
+  - Description: Vendor type associated with the order
+  - Type: Categorical
+  - Values observed: `Restaurant`, `Grocery`, `Pharmacy`, `Retail`
+  - Example use: Testing whether broader category usage relates to retention
+
+- `delivery_type`
+  - Description: Fulfillment mode selected for the order
+  - Type: Categorical
+  - Values observed: `On-Demand`, `Scheduled`, `Express`
+  - Example use: Comparing retention across service types
+
+- `items_count`
+  - Description: Number of items in the order
+  - Type: Numeric integer
+  - Example use: Basket-size analysis
+
+- `order_value_usd`
+  - Description: Total order value in US dollars
+  - Type: Numeric continuous
+  - Example use: Revenue and spending pattern analysis
+
+- `promo_used`
+  - Description: Whether a promotion was applied to the order
+  - Type: Binary categorical
+  - Values observed: `Yes`, `No`
+  - Example use: Testing whether promotion usage is associated with repeat behavior
+
+- `discount_amount_usd`
+  - Description: Discount amount applied to the order in US dollars
+  - Type: Numeric continuous
+  - Example use: Measuring depth of discounting
+
+Dataset: `deliveries.csv`
+Purpose: Delivery execution quality and post-order experience
+
+- `delivery_id`
+  - Description: Unique identifier for each delivery record
+  - Type: Categorical ID
+  - Example use: Delivery-level tracking
+
+- `order_id`
+  - Description: Identifier linking each delivery to an order
+  - Type: Categorical ID
+  - Example use: Joining delivery outcomes to order and customer behavior
+
+- `promised_time_min`
+  - Description: Promised delivery time in minutes
+  - Type: Numeric integer
+  - Example use: Benchmarking expected service level
+
+- `actual_time_min`
+  - Description: Actual delivery completion time in minutes
+  - Type: Numeric integer
+  - Example use: Calculating delivery performance
+
+- `delay_minutes`
+  - Description: Number of minutes the delivery was late
+  - Type: Numeric integer
+  - Example use: Measuring delay severity
+
+- `delivery_status`
+  - Description: Whether the delivery was on time or delayed
+  - Type: Categorical
+  - Values observed: `On-Time`, `Delayed`
+  - Example use: Testing whether reliable delivery affects retention
+
+- `order_accuracy`
+  - Description: Accuracy of the delivered order
+  - Type: Categorical
+  - Values observed: `Correct`, `Partial`, `Wrong`
+  - Example use: Measuring service quality
+
+- `customer_rating`
+  - Description: Customer rating for the delivery experience
+  - Type: Numeric ordinal
+  - Values observed: `1` to `5`
+  - Example use: Studying the relationship between satisfaction and repeat behavior
+
+2. Can These Datasets Test the Defined Hypotheses?
+
+Hypothesis 1
+Statement: Customers with more reliable delivery experiences are more likely to be retained.
+Assessment: Mostly testable with the current data.
+Why:
+- Delivery reliability is represented by `delivery_status`, `delay_minutes`, `actual_time_min`, `promised_time_min`, `order_accuracy`, and `customer_rating`
+- Retention or repeat behavior can be derived from future ordering activity using `order_date` and `customer_id`
+What is needed analytically:
+- A clear retention definition, such as whether a customer places another order within 30, 60, or 90 days after a focal order
+
+Hypothesis 2
+Statement: Customers who receive more personalized or promotion-driven engagement are more likely to place repeat orders and remain active.
+Assessment: Partially testable.
+Why:
+- Promotion-driven behavior can be tested using `promo_used` and `discount_amount_usd`
+- Repeat behavior can be derived from order history
+Gap:
+- There is no direct data on personalization, such as recommendations shown, campaign targeting, email or push notification exposure, loyalty messaging, or individualized offers
+Conclusion:
+- The promotion part of the hypothesis is testable, but the personalization part is not supported by the available datasets
+
+Hypothesis 3
+Statement: Customers who use UrbanCart across multiple vendor categories or service types are more likely to be retained.
+Assessment: Testable with the current data.
+Why:
+- `vendor_category` and `delivery_type` allow customer-level breadth-of-usage features to be created
+- Retention or repeat behavior can be derived from order dates and customer IDs
+What is needed analytically:
+- Customer-level features such as number of distinct categories used or number of distinct delivery types used before a retention evaluation window
+
+3. Data Gaps and Limitations
+
+Gap 1: No explicit retention or churn label
+Impact:
+- Retention is not directly stored as a field and must be defined from repeat ordering behavior
+- Results may change depending on the time window selected
+Recommendation:
+- Create a formal retention definition before analysis, for example active again within 30, 60, or 90 days
+
+Gap 2: No direct personalization or CRM interaction data
+Impact:
+- The analysis cannot fully test whether personalized interactions drive retention
+- Only generic promotion usage can be evaluated
+Examples of missing fields:
+- Campaign exposure
+- Push notification history
+- Email engagement
+- Recommendation impressions or clicks
+- Loyalty program participation
+
+Gap 3: Limited customer experience context beyond delivery outcomes
+Impact:
+- Important churn drivers may be missing, such as cancellations, refunds, app issues, support tickets, stockouts, or payment failures
+- Hypothesis 1 can be tested for delivery quality, but not for the full service experience
+
+Gap 4: Right-censoring risk near the end of the date range
+Impact:
+- Customers who ordered near 2026-04-14 may appear not retained simply because there is little future observation time
+- Newer customers may be unfairly labeled as inactive if the retention window is too long
+Recommendation:
+- Use cohort cutoffs or exclude very recent orders/customers when calculating retention outcomes
+
+Gap 5: No direct profitability or acquisition-cost fields
+Impact:
+- The business context emphasizes profitability and retention economics, but this dataset cannot directly measure customer lifetime value, CAC, or margin
+
+4. Overall Sufficiency Verdict
+
+The current datasets are sufficient to begin EDA and to test two of the three hypotheses well enough for an initial project:
+- Hypothesis 1: testable
+- Hypothesis 3: testable
+
+Hypothesis 2 is only partially testable:
+- Promotion effects: testable
+- Personalization effects: not testable with current data
+
+Overall, the data is strong enough for a solid retention-focused EDA if retention is carefully defined and the missing personalization fields are acknowledged as a limitation.
